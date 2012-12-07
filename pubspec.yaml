@@ -1,0 +1,8 @@
+name:  SpringbokFirstTest
+description:  A sample application
+
+#dependencies:
+#  unittest: { sdk: unittest }
+
+# dependencies:
+#  springbok:{ git: file://springbok/ }
