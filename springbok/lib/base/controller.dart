@@ -30,7 +30,7 @@ class Controller{
     resp.headers.set('Refresh', '0; url=$url');
     resp.headers.set(HttpHeaders.CONTENT_TYPE, 'text/html');
     _write('<!DOCTYPE html>'
-           '<head><meta http-equiv="Refresh" content="0; url=\'$url\'"></head>'
+           '<html><head><meta http-equiv="Refresh" content="0; url=\'$url\'"></head>'
            '<body>Page requested cannot be found. <a href="$url">Click here to be redirected</a></body>'
            '</html>'
         ,HttpStatus.NOT_FOUND);
