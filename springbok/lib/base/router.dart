@@ -65,15 +65,15 @@ class Router{
           finalRoute[lang]=new RouterRouteLang(
             new RegExp(r"^".concat(UString.replaceAll(routeLangPreg,
                 new RegExp(r'(\(\?)?\:([a-zA-Z_]+)'),(Match m,String s){
-                  if(m[1]!==null) return m[0];
+                  if(m[1]!=null) return m[0];
                   paramsNames.add(m[2]);
-                  if(paramsDef!==null && paramsDef.containsKey(m[2])){
+                  if(paramsDef!=null && paramsDef.containsKey(m[2])){
                     var paramDefVal=paramsDef[m[2]] is Map ? paramsDef[m[2]][lang] : paramsDef[m[2]];
-                    return paramDefVal==='id' ? r'([0-9]+)' : '($paramDefVal)';
+                    return paramDefVal=='id' ? r'([0-9]+)' : '($paramDefVal)';
                   }
                   if(['id'].contains(m[2])) return '([0-9]+)';
                   return r'([^\/]+)';
-              })).concat(ext!==null ? (ext==='html' ? r'(?:\.html)?':'\.$ext') : '').concat(r'$')
+              })).concat(ext!=null ? (ext=='html' ? r'(?:\.html)?':'\.$ext') : '').concat(r'$')
             ),
             routeLang=routeLang.replaceAll(new RegExp(r'(\:[a-zA-Z_]+)'),'%s')
                 .replaceAll(new RegExp(r'[\?\(\)]'),'')
@@ -105,16 +105,16 @@ class Router{
     print('router : find: "$all"');
     for(RouterRoute route in this._routes[entry].values){
       RouterRouteLang routeLang=route[lang];
-      if(routeLang===null) routeLang=route['_'];
+      if(routeLang==null) routeLang=route['_'];
       print('try: '.concat(routeLang.regExp.pattern));//.concat(routeLang[0].allMatches(all)));
       Match match=routeLang.regExp.firstMatch(all);
       
-      if(match !== null){
+      if(match != null){
         var c_a={'controller':route.controller,'action':route.action},nParams={},sParams=[]; // nParams=named params, sParams= simple params
         
-        if(route.params!==null){
+        if(route.params!=null){
           var /*nbNamedParameters=route.params.length,*/countMatches=match.groupCount;
-          if(countMatches !== 0){
+          if(countMatches != 0){
             int group=1;
             for(var param in route.params) nParams[param]=match.group(group++);
             while(group <= countMatches) sParams.add(match.group(group++));
@@ -160,6 +160,6 @@ class Router{
       //  throw new Exception("Missing traduction '$s' for lang '$lang'");
     }
     String t=this._routesLangs['$lang->'][s];
-    return t===null ? s : t;
+    return t==null ? s : t;
   }
 }

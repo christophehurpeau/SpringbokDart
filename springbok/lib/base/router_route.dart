@@ -20,6 +20,6 @@ class RouterRouteLang{
   RegExp regExp;
   String strf;
   RouterRouteLang(RegExp this.regExp,String this.strf){
-    if(this.strf!=='/') this.strf=UString.rtrim(this.strf,'/');
+    if(this.strf!='/') this.strf=UString.rtrim(this.strf,'/');
   }
 }

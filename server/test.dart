@@ -8,5 +8,6 @@ part 'controllers/Site.dart';
 
 
 main(){
-  App.start(new Directory.current().path);
+  final controllers={'Site':SiteController()};
+  App.start(controllers,new Directory.current().path);
 }

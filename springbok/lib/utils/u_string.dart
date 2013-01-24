@@ -23,11 +23,11 @@ class UString {
   
   
   static String ucFirst(final String s){
-    assert(s!==null);
+    assert(s!=null);
     return '${s[0].toUpperCase()}${s.substring(1)}';
   }
   static String lcFirst(String s){
-    assert(s!==null);
+    assert(s!=null);
     return '${s[0].toLowerCase()}${s.substring(1)}';
   }
 }

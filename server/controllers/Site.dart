@@ -1,9 +1,9 @@
 part of chapps;
 
-class SiteController extends AppController{
-  SiteController(HttpRequest req,HttpResponse resp) : super(req,resp);
-  
-  Index(){
-    renderText("ok!!");
-  }
+SiteController(){
+  return new Controller({
+    'Index':new Action((req,res){
+      res.text("ok!!");
+    })
+  });
 }

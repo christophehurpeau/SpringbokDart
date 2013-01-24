@@ -1,19 +1,20 @@
 part of springbok;
 
 class Controller{
+  final Map<String,Action> actions;
+  
+  Controller(Map<String,Action> this.actions);
+
+  Action operator [](String actionName) => this.actions[actionName];
+}
+
+
+/*
+class Controller{
   final HttpRequest req;
   final HttpResponse resp;
   
   Controller(HttpRequest this.req,HttpResponse this.resp);
-  
-  dispatch(String action){
-    print('dispatch: $action');
-    reflect(this).invoke(action,[]).then((InstanceMirror retval){
-      print(retval);
-    });
-    print('dispatched: $action');
-  }
-  
   
   renderText(String text){
     _write(text);
@@ -36,3 +37,4 @@ class Controller{
         ,HttpStatus.NOT_FOUND);
   }
 }
+*/
